@@ -1,0 +1,439 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+:root {
+  --portfolio-dark-green: #181c14;
+  --portfolio-green: #697565;
+  --portfolio-white: #ffffff;
+  --portfolio-golden: #ecdfcc;
+  --portfolio-dark-gray: #2a2c25;
+  --portfolio-light-gray: #3c3d37;
+  --portfolio-font-xs: 14px;
+  --portfolio-font-s: 16px;
+  --portfolio-font-m: 24px;
+  --portfolio-font-l: 72px;
+  --portfolio-font-xl: 84px;
+}
+* {
+  color: var(--portfolio-white);
+}
+
+a {
+  color: inherit !important; /* blue colors for links too */
+  text-decoration: inherit !important; /* no underline */
+}
+body {
+  background-color: var(--portfolio-dark-green) !important;
+  color: var(--portfolio-white);
+  padding-top: 75px;
+}
+button {
+  border: none;
+  background-color: transparent;
+}
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  background-color: var(--portfolio-golden);
+  opacity: 0.2;
+  transition: height 0.3s ease-out, width 0.3s ease-out;
+}
+.custom-cursor.hovering {
+  width: 100px;
+  height: 100px;
+}
+.mynav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000; /* Ensure nav stays on top */
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Flexbox container to align logo and links */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Logo on left, links on right */
+  align-items: center;
+  width: 100%;
+  padding: 0 20px; /* Add some padding */
+  overflow: auto;
+}
+.paddingContainer {
+  padding-top: 50px;
+}
+/* Logo styling */
+.mylogo {
+  font-size: var(--portfolio-font-m);
+  text-transform: uppercase;
+}
+
+/* Links styling */
+.mylinks {
+  display: flex; /* Display links horizontally */
+  gap: 40px; /* Space between links */
+  list-style: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0; /* Ensure no extra margins */
+  transition: flex-direction 0.3s ease-in-out;
+}
+.mylinks li {
+  cursor: pointer; /* Make it clear these are clickable */
+  text-transform: uppercase;
+}
+
+.mylinks li:hover {
+  color: var(--portfolio-highlight-color); /* Optional hover effect */
+}
+
+.mylinks li.active {
+  font-weight: 600;
+  color: var(--portfolio-golden);
+  position: relative;
+}
+.mylinks li.active::after {
+  content: ""; /* Ensure pseudo-element renders */
+  position: absolute;
+  top: 0px;
+  right: -6px;
+  height: 12px;
+  width: 12px;
+  background-image: url("./assets/nabactive.svg");
+  background-size: contain; /* Ensure image fits inside the box */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  z-index: -1;
+}
+.mybutton {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mylinks.horizontal {
+  flex-direction: row !important;
+}
+
+.mylinks.vertical {
+  flex-direction: column !important;
+  align-items: center;
+}
+.nav-container.vertical {
+  flex-direction: column !important;
+  align-items: center;
+}
+.mynav.expanded {
+  height: 100svh;
+  background-color: var(--portfolio-dark-gray);
+}
+.viewable {
+  display: block !important;
+}
+.bigsize {
+  text-align: center;
+}
+.navOpenButton {
+  margin-top: 35px;
+  transform: translateY(-50%);
+  width: 30px;
+}
+.line1,
+.line2 {
+  width: 100%;
+  height: 1.5px;
+  margin-top: 5px;
+  background-color: var(--portfolio-golden);
+  transition: all 0.3s;
+  position: relative !important;
+}
+.line1.rotate1 {
+  margin-top: 0;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+}
+.line2.rotate2 {
+  margin-top: 0;
+  transform: rotate(-45deg);
+  transform-origin: 50% 50%;
+}
+.mycontainer {
+  padding: 0 8%;
+}
+.heroFonts {
+  font-size: var(--portfolio-font-l);
+  line-height: 100%;
+}
+.heroFonts > span {
+  color: var(--portfolio-golden);
+}
+.descrp {
+  width: 80%;
+  font-size: var(--portfolio-font-s);
+}
+.heroButton {
+  background-color: var(--portfolio-golden);
+  color: var(--portfolio-dark-gray);
+  padding: 12px 32px;
+  text-transform: uppercase;
+  font-size: var(--portfolio-font-s);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+}
+#nextArrow {
+  transform: translateY(-10%);
+  margin-left: 12px !important;
+}
+.heroimg {
+  min-height: 640px;
+  height: 90vh;
+  transform: translateX(10%) translateY(-10%);
+}
+.bottombar {
+  position: relative;
+}
+.bottombar::after {
+  content: "";
+  position: absolute;
+  height: 0.5px;
+  width: 100%;
+  background-color: #697565;
+  left: 0;
+  bottom: 11.5%;
+}
+.title-montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 100%;
+  margin-top: 12px;
+}
+.challenges-about {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  line-height: 120%;
+  text-transform: uppercase;
+}
+.challenges-about > a {
+  text-decoration: underline !important;
+}
+.rightline {
+  position: absolute;
+  right: 50%;
+  height: 100%;
+  width: 0.5px;
+  background-color: #697565;
+}
+.mycard {
+  background-color: var(--portfolio-dark-gray);
+  margin: 10px 0px;
+  padding: 16px;
+  width: 100%;
+  min-height: 300px;
+  position: relative;
+}
+.left-card {
+  margin-right: 10px;
+}
+.right-card {
+  margin-left: 10px;
+}
+.mycardimg > img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.mycard-title {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 18px;
+  margin-bottom: 8px;
+  color: var(--portfolio-golden);
+  font-size: var(--portfolio-font-m);
+  line-height: 120%;
+}
+.mycard-about {
+  font-size: var(--portfolio-font-s);
+  line-height: 140%;
+}
+.myskill {
+  font-size: var(--portfolio-font-xs);
+  text-transform: uppercase;
+  padding: 8px 16px;
+  display: inline-block !important;
+  background-color: var(--portfolio-light-gray);
+  border-radius: 100px;
+  margin-right: 4px;
+  margin-bottom: 8px;
+}
+.knowmore {
+  margin: 12px 0 8px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.card-more {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: var(--portfolio-font-l);
+  color: var(--portfolio-golden);
+  cursor: pointer;
+}
+.exploresvg {
+  height: 55px;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+.mycontainertop {
+  margin-top: 250px;
+}
+.mybottomline{
+  margin: 80px 0;
+  height: 0.5px;
+  width: 100%;
+  background-color: var(--portfolio-green);
+}
+.mycontainertop-2{
+  margin-top: 200px;
+}
+.dreamimg1{
+  height: 500px;
+  width: 100%;
+  margin-right: 10px; 
+  object-fit: cover;
+}
+.dreamimg2{
+  height: 245px;
+  width: 100%;
+  object-fit: cover;
+  display: block !important;
+}
+.dreamimg3{
+  margin-top: 10px;
+  height: 245px;
+  width: 100%;
+  object-fit: cover;
+  display: block !important;
+}
+
+@media screen and (max-width: 1200px) {
+  :root {
+    --portfolio-font-xs: 12px;
+    --portfolio-font-s: 16px;
+    --portfolio-font-m: 20px;
+    --portfolio-font-l: 56px;
+    --portfolio-font-xl: 72px;
+  }
+  .heroimg {
+    max-height: 500px;
+    transform: translateX(0%) translateY(-10%);
+  }
+
+  .title-montserrat {
+    font-size: 32px;
+  }
+  .challenges-about {
+    font-size: 14px !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  :root {
+    --portfolio-font-xs: 12px;
+    --portfolio-font-s: 16px;
+    --portfolio-font-m: 20px;
+    --portfolio-font-l: 48px;
+    --portfolio-font-xl: 62px;
+  }
+  .heroimg {
+    min-height: 500px;
+    height: 500px;
+    display: flex;
+    justify-self: end;
+  }
+  .bottombar::after {
+    bottom: 7.5%;
+  }
+
+  .mycardimg > img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .mycontainertop {
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mylinks {
+    display: none;
+    padding-top: 80px;
+  }
+  .mylinks li {
+    margin-top: 15px;
+    font-size: var(--portfolio-font-m);
+  }
+  .mylogo {
+    position: absolute !important;
+    top: 20px;
+    left: 5%;
+  }
+  .mycontainer {
+    padding: 0 5%;
+  }
+  .mybutton {
+    display: block;
+    right: 5%;
+  }
+  .heroimg {
+    min-height: 400px;
+    height: 400px;
+    margin-top: 50px;
+    margin-right: 20px;
+  }
+  .paddingContainer {
+    padding-top: 0px;
+  }
+  .bottombar::after {
+    bottom: calc(50px);
+  }
+  .mytopinsmall {
+    margin-top: 100px !important;
+  }
+  .left-card {
+    margin-right: 0px;
+  }
+  .right-card {
+    margin-left: 0px;
+  }
+}
+@media screen and (max-width: 576px) {
+}
